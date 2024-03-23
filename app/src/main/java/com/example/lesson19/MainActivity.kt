@@ -4,7 +4,6 @@ package com.example.lesson19
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.lesson19.databinding.ActivityMainBinding
 
 
@@ -18,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-            val recyclerView = findViewById<RecyclerView>(R.id.recyclerView1)
+            val recyclerView = binding.recyclerView1
             val notes = listOf(
                 Notes("Алексей", "Привет всем", "18.03.2024"),
                 Notes("Алексей", "Простите что пропал", "18.03.2024"),

@@ -1,13 +1,32 @@
 package com.example.lesson19
 
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.lesson19.databinding.UserListItemBinding
 
-class NotesViewHolder(root: View): RecyclerView.ViewHolder(root) {
+class NotesViewHolder(private val userListItemBinding: UserListItemBinding):
+RecyclerView.ViewHolder(userListItemBinding.root){
 
-    val nameTextView: TextView = root.findViewById(R.id.userName)
-    val dataTextView: TextView = root.findViewById(R.id.textMessageData)
-    val textTextView: TextView = root.findViewById(R.id.textMessage)
 
-}
+
+    fun bind (notes: Notes) {
+        with(userListItemBinding) {
+            userName.text = notes.name
+            textMessage.text = notes.text
+            textMessageData.text = notes.date
+
+        }
+    }
+
+        companion object {
+            fun from(parent: ViewGroup): NotesViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = UserListItemBinding.inflate(layoutInflater, parent, false)
+                return NotesViewHolder(binding)
+            }
+        }
+
+    }
